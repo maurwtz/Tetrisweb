@@ -1,6 +1,7 @@
 var COLS = 10, ROWS = 20;
 var board = [];
 var score;
+var maxScore;
 var lose;
 var interval;
 var intervalRender;
@@ -118,6 +119,9 @@ function clearLines() {
         }
         if ( rowFilled ) {
             score += 1000;
+            if (score > maxScore) { maxScore = score;}
+            localStorage.setItem(maxScore);
+            sessionStorage.setItem(score);
             document.getElementById( 'score' ).innerHTML = 'Score : ' + score;
             document.getElementById( 'clearsound' ).play();
             for ( var yy = y; yy > 0; --yy ) {
