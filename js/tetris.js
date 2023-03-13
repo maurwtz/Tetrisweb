@@ -120,7 +120,7 @@ function clearLines() {
         if ( rowFilled ) {
             score += 1000;
             if (score > maxScore) { maxScore = score;}
-            localStorage.setItem(maxScore);
+            localStorage.setItem('Top Score: ' + maxScore);
             sessionStorage.setItem(score);
             document.getElementById( 'score' ).innerHTML = 'Score : ' + score;
             document.getElementById( 'clearsound' ).play();
@@ -206,6 +206,7 @@ function newGame() {
     init();
     newShape();
     score = 0;
+    document.getElementById( 'score' ).innerHTML = 'Score : ' + score;
     lose = false;
     interval = setInterval( tick, 400 );
 }
