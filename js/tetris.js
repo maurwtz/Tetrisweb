@@ -1,5 +1,6 @@
 var COLS = 10, ROWS = 20;
 var board = [];
+var score;
 var lose;
 var interval;
 var intervalRender;
@@ -116,6 +117,8 @@ function clearLines() {
             }
         }
         if ( rowFilled ) {
+            score += 1000;
+            document.getElementById( 'score' ).innerHTML = 'Score : ' + score;
             document.getElementById( 'clearsound' ).play();
             for ( var yy = y; yy > 0; --yy ) {
                 for ( var x = 0; x < COLS; ++x ) {
@@ -198,6 +201,7 @@ function newGame() {
     intervalRender = setInterval( render, 30 );
     init();
     newShape();
+    score = 0;
     lose = false;
     interval = setInterval( tick, 400 );
 }

@@ -16,3 +16,18 @@ canvas {
     background-color: white;
     cursor: pointer;
 }
+
+#score {
+    width: 200px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    margin: auto;
+    margin-top: -500px;
+    margin-left: 80%;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+}
