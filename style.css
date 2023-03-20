@@ -1,7 +1,11 @@
 canvas {
     display: block;
     margin: auto;
-    border: 1px solid black;
+    border: 1px solid white;
+}
+
+#test {
+    background-color: black;
 }
 
 #playbutton {
@@ -28,7 +32,8 @@ canvas {
     font-family: Arial, sans-serif;
     font-size: 25px;
     font-weight: bold;
-    background-color: white;
+    color: white;
+    background-color: blackwhite;
     cursor: pointer;
 }
 
@@ -43,6 +48,7 @@ canvas {
     font-family: Arial, sans-serif;
     font-size: 25px;
     font-weight: bold;
-    background-color: white;
+    color: white;
+    background-color: black;
     cursor: pointer;
 }
