@@ -1,7 +1,9 @@
 var COLS = 10, ROWS = 20;
 var board = [];
 var score;
-var maxScore;
+const NO_OF_HIGH_SCORES = 10;
+const HIGH_SCORES = 'highScores';
+var maxScore = 0;
 var lose;
 var interval;
 var intervalRender;
@@ -120,8 +122,8 @@ function clearLines() {
         if ( rowFilled ) {
             score += 1000;
             if (score > maxScore) { maxScore = score;}
-            localStorage.setItem('Top Score: ' + maxScore);
-            sessionStorage.setItem(score);
+            
+            //sessionStorage.setItem(score);
             document.getElementById( 'score' ).innerHTML = 'Score : ' + score;
             document.getElementById( 'clearsound' ).play();
             for ( var yy = y; yy > 0; --yy ) {
@@ -185,6 +187,9 @@ function valid( offsetX, offsetY, newCurrent ) {
                   || x + offsetX >= COLS ) {
                     if (offsetY == 1 && freezed) {
                         lose = true; // lose if the current shape is settled at the top most row
+                        checkHighScore(score);
+                        /*localStorage.setItem('score', score);
+                        localStorage.setItem('topScore', maxScore);    */
                         document.getElementById('playbutton').disabled = false;
                     } 
                     return false;
@@ -195,10 +200,50 @@ function valid( offsetX, offsetY, newCurrent ) {
     return true;
 }
 
+
+
 function playButtonClicked() {
     newGame();
     document.getElementById("playbutton").disabled = true;
 }
+
+function saveHighScore(score, highScores) {
+    const name = prompt('INGRESA UN NOMBRE: ');
+    const newScore = { score, name };
+    
+    // 1. Add to list
+    highScores.push(newScore);
+  
+    // 2. Sort the list
+    highScores.sort((a, b) => b.score-a.score);
+    
+    // 3. Select new list
+    highScores.splice(NO_OF_HIGH_SCORES);
+    
+    // 4. Save to local storage
+    localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores));
+}
+
+function checkHighScore(score) {
+    const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
+    const lowestScore = highScores[NO_OF_HIGH_SCORES-1]?.score ?? 0;
+    
+    if (score > lowestScore) {
+      saveHighScore(score, highScores); 
+      //showHighScores();
+    }
+}
+
+
+
+function showHighScores() {
+    const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
+    const highScoreList = document.getElementById(HIGH_SCORES);
+    
+    highScoreList.innerHTML = highScores
+      .map((score) => `<li>${score.score}-${score.name}`)
+      .join('');
+  }
 
 function newGame() {
     clearAllIntervals();

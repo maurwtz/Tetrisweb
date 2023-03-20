@@ -23,7 +23,22 @@ canvas {
     display: block;
     position: absolute;
     text-align:right;
-    margin-top: -400px;
+    margin-top: -550px;
+    margin-left: calc(50% + 150px);
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+}
+
+#highscore {
+    width: 350px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    text-align:right;
+    margin-top: -500px;
     margin-left: calc(50% + 150px);
     font-family: Arial, sans-serif;
     font-size: 25px;
