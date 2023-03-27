@@ -261,7 +261,7 @@ function clearAllIntervals(){
     clearInterval( intervalRender );
 }
 
-let installButton = document.createElement('button');
+const butInstall = document.getElementById("butInstall");
 
 let prompt;
 window.addEventListener('beforeinstallprompt', function(e){
@@ -271,6 +271,7 @@ window.addEventListener('beforeinstallprompt', function(e){
   prompt = e;
 });
 
-installButton.addEventListener('click', function(){
+butInstall.addEventListener('click', function(){
+    console.log("estoy aca")
    prompt.prompt();
 })
