@@ -3,6 +3,8 @@ var board = [];
 var score;
 const NO_OF_HIGH_SCORES = 10;
 const HIGH_SCORES = 'highScores';
+const divInstall = document.getElementById("installContainer");
+const butInstall = document.getElementById("butInstall");
 var maxScore = 0;
 var lose;
 var interval;
@@ -201,7 +203,6 @@ function valid( offsetX, offsetY, newCurrent ) {
 }
 
 
-
 function playButtonClicked() {
     newGame();
     document.getElementById("playbutton").disabled = true;
@@ -260,3 +261,19 @@ function clearAllIntervals(){
     clearInterval( interval );
     clearInterval( intervalRender );
 }
+
+let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        deferredPrompt = e;
+    });
+
+    const installApp = document.getElementById('installApp');
+    installApp.addEventListener('click', async () => {
+        if (deferredPrompt !== null) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                deferredPrompt = null;
+            }
+        }
+    });
