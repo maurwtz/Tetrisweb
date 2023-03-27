@@ -3,8 +3,6 @@ var board = [];
 var score;
 const NO_OF_HIGH_SCORES = 10;
 const HIGH_SCORES = 'highScores';
-const divInstall = document.getElementById("installContainer");
-const butInstall = document.getElementById("butInstall");
 var maxScore = 0;
 var lose;
 var interval;
