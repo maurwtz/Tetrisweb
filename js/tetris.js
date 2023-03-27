@@ -276,6 +276,9 @@ butInstall.addEventListener('click', function(){
    prompt.prompt();
 })
 */
+const divInstall = document.getElementById("installContainer");
+const butInstall = document.getElementById("butInstall");
+
 
 window.addEventListener('beforeinstallprompt', (event) => {
     // Prevent the mini-infobar from appearing on mobile.
