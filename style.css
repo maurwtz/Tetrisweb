@@ -21,7 +21,7 @@ canvas {
     cursor: pointer;
 }
 /* perro*/
-#installApp {
+#butInstall {
     width: 100px;
     height: 50px;
     display: block;
