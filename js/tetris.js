@@ -251,7 +251,7 @@ function newGame() {
     init();
     newShape();
     score = 0;
-    document.getElementById( 'score' ).innerHTML = 'Score : ' + score;
+    document.getElementById( 'score' ).innerHTML = 'SCORE  ' + score;
     lose = false;
     interval = setInterval( tick, 400 );
 }
