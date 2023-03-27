@@ -8,7 +8,7 @@ canvas {
     background-color: black;
 }
 
-#playbutton, #installApp {
+#playbutton{
     width: 100px;
     height: 50px;
     display: block;
@@ -20,7 +20,18 @@ canvas {
     background-color: white;
     cursor: pointer;
 }
-
+#installApp {
+    width: 100px;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+}
 
 
 #score {
