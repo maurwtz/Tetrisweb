@@ -50,6 +50,7 @@ canvas {
 justify-content:center;
 }
 
+/* perro 2*/
 #butIzquierda, #butDerecha, #butAbajo, #butRotar{
     font-size: 30px;
     background-color: black;
