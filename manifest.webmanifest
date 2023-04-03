@@ -2,7 +2,7 @@
     "theme_color": "#5635f6",
     "background_color": "#000000",
     "display": "fullscreen",
-    "scope": "https://maurwtz.github.io",
+    "scope": "https://maurwtz.github.io/",
     "start_url": "/index.html",
     "name": "Tetrisweb",
     "short_name": "ttwb",
