@@ -1,6 +1,0 @@
-[{
-        "relation": ["delegate_permission/common.handle_all_urls"],
-        "target" : { "namespace": "android_app", "package_name": "io.github.maurwtz.twa",
-                     "sha256_cert_fingerprints": ["A0:43:3B:43:3F:01:C1:33:02:9F:B9:FF:80:DA:6D:E7:27:3E:07:BC:3C:40:E7:8F:FC:22:D9:9D:4D:CC:80:EF"] }
-      }
-]
