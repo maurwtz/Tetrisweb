@@ -45,6 +45,16 @@ canvas {
     
 }
 
+#botones{
+    text-align: center;
+justify-content:center;
+}
+
+#butIzquierda, #butDerecha, #butAbajo, #butRotar{
+    font-size: 30px;
+    background-color: black;
+}
+
 
 #score {
     width: 200px;
