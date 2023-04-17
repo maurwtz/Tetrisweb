@@ -35,7 +35,6 @@ var colors = [
 webSocket = new WebSocket("wss://demo.piesocket.com/v3/channel_123?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self");
 
 //wss://ucpgames-api.azurewebsites.net/
-webSocket.send("Test")
 
 webSocket.onopen = (event) => {
     exampleSocket.send("Here's some text that the server is urgently awaiting!");
