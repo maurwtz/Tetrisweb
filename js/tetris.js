@@ -34,7 +34,7 @@ var colors = [
 
 webSocket = new WebSocket("wss://ucpgames-api.azurewebsites.net/");
 
-exampleSocket.onopen = (event) => {
+webSocket.onopen = (event) => {
     console.log(event.data);
   };
 
