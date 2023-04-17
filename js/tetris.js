@@ -33,6 +33,22 @@ var colors = [
 //WEBSOCKET
 
 webSocket = new WebSocket("wss://ucpgames-api.azurewebsites.net/echo");
+
+function sendText(){
+    
+  const msg = {
+    juego: "Tetrisweb",
+    event: "Final Score",
+    value: 1,
+    player: "Jugador"
+  };
+  exampleSocket.send(JSON.stringify(msg));
+
+  
+  document.getElementById("text").value = "";
+}
+
+
 /*
 info = {game:"Tetrisweb", event:"Score", value: score, player: "Jugador1"}
 
@@ -201,6 +217,7 @@ function valid( offsetX, offsetY, newCurrent ) {
                   || x + offsetX >= COLS ) {
                     if (offsetY == 1 && freezed) {
                         lose = true; // lose if the current shape is settled at the top most row
+                        sendText();
                         checkHighScore(score);
                         /*localStorage.setItem('score', score);
                         localStorage.setItem('topScore', maxScore);    */
