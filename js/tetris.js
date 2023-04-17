@@ -30,6 +30,47 @@ var colors = [
     'cyan', 'orange', 'blue', 'yellow', 'red', 'green', 'purple'
 ];
 
+
+//WEBSOCKET
+/* html
+<script>
+            const ws = new WebSocket("ws://localhost:8082");
+
+            ws.addEventListener("open", e => {
+              ws.send("dcode");
+            });
+          </script>    */
+/* JAVA          
+const WebSocket = require(ws);
+
+const wss = new WebSocket.Server({ port : 8082 });
+
+wss.on("connection", ws => {
+    ws.on("message", message => {
+        console.log(message);
+    });
+});
+*/
+webSocket = new WebSocket("wss://maurwtz.github.io/Tetrisweb/");
+
+exampleSocket.onopen = (event) => {
+    exampleSocket.send("Hola!");
+  };
+
+
+  exampleSocket.onmessage = (event) => {
+    console.log(event.data);
+  };
+
+exampleSocket.close();
+
+
+
+
+
+
+
+//GAME
 // creates a new 4x4 shape in global variable 'current'
 // 4x4 so as to cover the size when the shape is rotated
 function newShape() {

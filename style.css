@@ -47,14 +47,18 @@ canvas {
 
 #botones{
     text-align: center;
-justify-content:center;
-}
+justify-content:center;}
 
-/* perro 2*/
-#butIzquierda, #butDerecha, #butAbajo, #butRotar{
+#butIzquierda, #butDerecha, #butAbajo, #butRotar {
+    background-color: black; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 30px;
-    background-color: black;
-}
+  }
 
 
 #score {
