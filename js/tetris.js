@@ -32,7 +32,7 @@ var colors = [
 
 //WEBSOCKET
 
-webSocket = new WebSocket("wss://ucpgames-api.azurewebsites.net/");
+const webSocket = new WebSocket("wss://ucpgames-api.azurewebsites.net/multiplayer");
 
 webSocket.onopen = (event) => {
     console.log(event.data);
