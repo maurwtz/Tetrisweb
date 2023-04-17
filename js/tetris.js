@@ -30,45 +30,17 @@ var colors = [
     'cyan', 'orange', 'blue', 'yellow', 'red', 'green', 'purple'
 ];
 
-
 //WEBSOCKET
-/* html
-<script>
-            const ws = new WebSocket("ws://localhost:8082");
 
-            ws.addEventListener("open", e => {
-              ws.send("dcode");
-            });
-          </script>    */
-/* JAVA          
-const WebSocket = require(ws);
+webSocket = new WebSocket("wss://demo.piesocket.com/v3/channel_123?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self");
 
-const wss = new WebSocket.Server({ port : 8082 });
+//wss://ucpgames-api.azurewebsites.net/
+webSocket.send("Test")
 
-wss.on("connection", ws => {
-    ws.on("message", message => {
-        console.log(message);
-    });
-});
-*/
-webSocket = new WebSocket("wss://maurwtz.github.io/Tetrisweb/");
-
-exampleSocket.onopen = (event) => {
-    exampleSocket.send("Hola!");
+webSocket.onopen = (event) => {
+    exampleSocket.send("Here's some text that the server is urgently awaiting!");
   };
-
-
-  exampleSocket.onmessage = (event) => {
-    console.log(event.data);
-  };
-
-exampleSocket.close();
-
-
-
-
-
-
+// {"game":"Tetrisweb", "event":"Score", "value":score, "player": "Jugador1"}
 
 //GAME
 // creates a new 4x4 shape in global variable 'current'

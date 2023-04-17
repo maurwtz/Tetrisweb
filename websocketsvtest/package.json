@@ -1,0 +1,11 @@
+{
+  "name": "tetrisweb",
+  "version": "1.0.0",
+  "description": "Tetris web",
+  "main": "index.js",
+  "scripts": {
+    "test": "hi"
+  },
+  "author": "",
+  "license": "ISC"
+}
