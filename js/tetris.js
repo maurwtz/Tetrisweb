@@ -33,12 +33,13 @@ var colors = [
 //WEBSOCKET
 
 webSocket = new WebSocket("wss://ucpgames-api.azurewebsites.net/echo");
+/*
+info = {game:"Tetrisweb", event:"Score", value: score, player: "Jugador1"}
 
+JSON.parse({"game":"Tetrisweb", "event":"Score", "value":score, "player": "Jugador1"})
+JSON.stringify()*/
 //wss://ucpgames-api.azurewebsites.net/
 
-webSocket.onopen = (event) => {
-    webSocket.send("Here's some text that the server is urgently awaiting!");
-  };
 // {"game":"Tetrisweb", "event":"Score", "value":score, "player": "Jugador1"}
 
 //GAME
