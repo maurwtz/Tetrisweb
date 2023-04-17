@@ -37,7 +37,7 @@ webSocket = new WebSocket("wss://demo.piesocket.com/v3/channel_123?api_key=VCXCE
 //wss://ucpgames-api.azurewebsites.net/
 
 webSocket.onopen = (event) => {
-    exampleSocket.send("Here's some text that the server is urgently awaiting!");
+    webSocket.send("Here's some text that the server is urgently awaiting!");
   };
 // {"game":"Tetrisweb", "event":"Score", "value":score, "player": "Jugador1"}
 
