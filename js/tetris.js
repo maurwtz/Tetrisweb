@@ -110,6 +110,7 @@ function tick() {
         clearLines();
         if (lose) {
             clearAllIntervals();
+
             return false;
         }
         newShape();
@@ -156,7 +157,7 @@ function clearLines() {
             if (score > maxScore) { maxScore = score;}
             
             //sessionStorage.setItem(score);
-            document.getElementById( 'score' ).innerHTML = 'Score : ' + score;
+            document.getElementById( 'score' ).innerHTML = 'SCORE ' + score;
             document.getElementById( 'clearsound' ).play();
             for ( var yy = y; yy > 0; --yy ) {
                 for ( var x = 0; x < COLS; ++x ) {
@@ -220,8 +221,6 @@ function valid( offsetX, offsetY, newCurrent ) {
                     if (offsetY == 1 && freezed) {
                         lose = true; // lose if the current shape is settled at the top most row
                         checkHighScore(score);
-                        /*localStorage.setItem('score', score);
-                        localStorage.setItem('topScore', maxScore);    */
                         document.getElementById('playbutton').disabled = false;
                     } 
                     return false;
@@ -262,20 +261,9 @@ function checkHighScore(score) {
     
     if (score > lowestScore) {
       saveHighScore(score, highScores); 
-      //showHighScores();
+      
     }
 }
-
-
-
-function showHighScores() {
-    const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
-    const highScoreList = document.getElementById(HIGH_SCORES);
-    
-    highScoreList.innerHTML = highScores
-      .map((score) => `<li>${score.score}-${score.name}`)
-      .join('');
-  }
 
 function newGame() {
     clearAllIntervals();
@@ -292,22 +280,7 @@ function clearAllIntervals(){
     clearInterval( interval );
     clearInterval( intervalRender );
 }
-/*
-const butInstall = document.getElementById("butInstall");
 
-let prompt;
-window.addEventListener('beforeinstallprompt', function(e){
-  // Prevent the mini-infobar from appearing on mobile
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  prompt = e;
-});
-
-butInstall.addEventListener('click', function(){
-    console.log("estoy aca")
-   prompt.prompt();
-})
-*/
 const divInstall = document.getElementById("installContainer");
 const butInstall = document.getElementById("butInstall");
 

@@ -14,11 +14,16 @@ canvas {
     background: -webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
 }
 
+#izquierdaUI{
+    margin-left: calc(5%);
+}
+
 #playbutton{
     background-color: #183850;
     color: white;
     font-family: arial;
     font-weight: bold;
+    text-align: left;
     letter-spacing: 5px;
     line-height: 1rem;
     text-shadow: 0 0 3px white;
@@ -26,13 +31,11 @@ canvas {
     width: 150px;
     height: 70px;
     display: block;
-    margin-left: 5%;
     font-family: Arial, sans-serif;
     font-size: 50px;
     cursor: pointer;
     margin-top: -550px;
     border: none;
-    padding: 15px 32px;
     display: inline-block;
 }
 
@@ -53,11 +56,44 @@ canvas {
     font-size: 18px;
     cursor: pointer;
     margin-top: -585px;
-    margin-left: 5%;
     
 }
 
+#score {
+    color: white;
+    font-family: arial;
+    font-weight: bold;
+    letter-spacing: 3px;
+    
+    text-shadow: 0 0 3px white;
+    width: 150px;
+    height: 100px;
+    display: block;
+    position: absolute;
+    object-fit: contain;
+    margin-top: -450px;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
+#butResetHighscore{
+    background-color: #183850;
+    color: white;
+    font-family: arial;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 1rem;
+    text-shadow: 0 0 3px white;
+    width: 170px;
+    height: 50px;
+    display: block;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+}
 
 #botones{
     text-align: center;
@@ -75,35 +111,16 @@ justify-content:center;}
   }
 
 
-#score {
-    background-color: #183850;
-    color: white;
-    font-family: arial;
-    font-weight: bold;
-    letter-spacing: 3px;
-    line-height: 1rem;
-    text-shadow: 0 0 3px white;
-    width: 180px;
-    height: 100px;
-    display: block;
-    position: absolute;
-    object-fit: contain;
-    margin-top: -450px;
-    margin-left: 5%;
-    font-family: Arial, sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-    cursor: pointer;
-}
 
-#highscore {
+
+#derechaUI {
     width: 340px;
     height: 50px;
     display: block;
     position: absolute;
     text-align:right;
-    margin-top: -550px;
-    margin-left: calc(50% + 145px);
+    margin-left: calc(70% + 145px);
+    margin-top: -585px;
     font-size: 25px;
     font-weight: bold;
     cursor: pointer;
@@ -113,4 +130,15 @@ justify-content:center;}
     letter-spacing: 5px;
     line-height: 1rem;
     text-shadow: 0 0 3px white;
+
+}
+
+#highscore-list{
+    width: 300px;
+    line-height: normal;
+    color: white;
+    letter-spacing: 2px;
+    word-spacing: 5%;
+    margin-left: 10%
+
 }

@@ -9,17 +9,24 @@
     <body id="test">
         <audio id="clearsound" src="sound/pop.ogg" preload="auto"></audio>
         <canvas width='300' height='600'></canvas>
-        <div id="score">
+        <div id="izquierdaUI">
+          <button id="playbutton" onclick="playButtonClicked();">Play</button>
+          <div id="score">
             SCORE 
           </div>
-        <div id="highscore">
-            <h2>HIGH SCORES</h2>
-            <ol id=”highScores”></ol>
+          <div id="installContainer" class="hidden">
+            <button id="butInstall" type="button">Install</button>
+          </div>
         </div>
-        <button id="playbutton" onclick="playButtonClicked();">Play</button>
-        <div id="installContainer" class="hidden">
-      <button id="butInstall" type="button">Install</button>
-    </div>
+        
+        <div id="derechaUI">
+          <button id="butResetHighscore" onclick="resetHighscores()">Reset Highscores</button>
+            <h2>HIGH SCORES</h2>
+            <div id="highscore-list">
+              <ol id="highscores"></ol>
+          </div>
+        </div>
+        
     <div id="botones">
       <div >
           <button id="butIzquierda" type="button">⬅️</button>
@@ -28,6 +35,7 @@
           <button id="butAbajo" type="button">🔽</button>
       </div>
   </div>
+        <script src="highscores.js"></script> 
         <script src='js/tetris.js'></script>
         <script src='js/controller.js'></script>
         <script src='js/render.js'></script>
