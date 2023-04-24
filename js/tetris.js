@@ -54,8 +54,18 @@ webSocket.onopen = (event) => {
   };
 
 webSocket.onmessage = (event) => {
-    ranking = JSON.parse(event.data);
-    console.log(ranking);
+    var listRank = '';
+    rankingGame = JSON.parse(event.data);
+    console.log(rankingGame);
+
+    for (let index = 0; index < rankingGame.events[0].players.length; index++) {
+        var p = rankingGame.events[0].players[index];
+        listRank+= '<li>' + p.name + ' puntos ('+ p.value +')</li>';
+    }
+
+    var listado = document.getElementById("mp");
+
+    listado.innerHTML = listRank;
 };
 
 
