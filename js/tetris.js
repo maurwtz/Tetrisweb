@@ -49,6 +49,11 @@ webSocket.onopen = (event) => {
     console.log(event.data);
   };
 
+webSocket.onmessage = (event) => {
+    console.log(event.data);
+};
+
+
 function sendText(){  
   const msg = {
     juego: "Tetrisweb",
