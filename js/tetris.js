@@ -3,6 +3,7 @@ var COLS = 10, ROWS = 20;
 var board = [];
 var score;
 var linea; //cantidas de lineas completadas
+var name;
 var player;
 const NO_OF_HIGH_SCORES = 10;
 const HIGH_SCORES = 'highScores';
@@ -59,10 +60,10 @@ webSocket.onmessage = (event) => {
 function sendText(){  
 
   const msg = {
-    juego: "Tetrisweb",
+    game: "Tetrisweb",
     event: "lineas",
     value: 1,
-    player: "tt",
+    player: name,
   };
   console.log(msg)
   webSocket.send(JSON.stringify(msg));
@@ -257,12 +258,12 @@ function valid( offsetX, offsetY, newCurrent ) {
 
 
 function playButtonClicked() {
+    name = prompt('INGRESA UN NOMBRE: ');
     newGame();
     document.getElementById("playbutton").disabled = true;
 }
 
 function saveHighScore(score, highScores) {
-    const name = prompt('INGRESA UN NOMBRE: ');
     const newScore = { score, name };
     player = name;
     //sendText(); // envia el score al websocket
