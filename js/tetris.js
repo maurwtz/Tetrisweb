@@ -58,15 +58,20 @@ webSocket.onmessage = (event) => {
     rankingGame = JSON.parse(event.data);
     console.log(rankingGame);
 
+    rankingGame.events[0].players.sort((a, b) => b.value - a.value);
+
     for (let index = 0; index < rankingGame.events[0].players.length; index++) {
         var p = rankingGame.events[0].players[index];
         listRank+= '<li>' + p.name + ' puntos ('+ p.value +')</li>';
+        
     }
-
+    
     var listado = document.getElementById("mp");
 
     listado.innerHTML = listRank;
 };
+//listRank.sort((a, b) => a.value-b.value);
+
 
 
 function sendText(){  
