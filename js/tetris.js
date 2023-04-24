@@ -30,6 +30,17 @@ var colors = [
     'cyan', 'orange', 'blue', 'yellow', 'red', 'green', 'purple'
 ];
 
+//SPLASH
+const splash = document.querySelector(".splash");
+
+document.addEventListener("DOMContentLoaded", (e)=>{
+    setTimeout(()=>{
+        splash.classList.add("display-none");
+    }, 2000)
+})
+
+
+
 //WEBSOCKET
 
 const webSocket = new WebSocket("wss://ucpgames-api.azurewebsites.net/multiplayer");
@@ -241,7 +252,7 @@ function saveHighScore(score, highScores) {
     const name = prompt('INGRESA UN NOMBRE: ');
     const newScore = { score, name };
     
-    sendText();
+    sendText(); // envia el score al websocket
     // 1. Add to list
     highScores.push(newScore);
   

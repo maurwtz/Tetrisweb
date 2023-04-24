@@ -14,6 +14,47 @@ canvas {
     background: -webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
 }
 
+.splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: -webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
+    z-index: 200;
+    color: white;
+    text-shadow: 0 0 3px white;
+    text-align: center;
+    line-height: 40vh;
+}
+
+.splash.display-none {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: -webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
+    z-index: -10;
+    color: white;
+    text-shadow: 0 0 3px white;
+    text-align: center;
+    line-height: 100vh;
+    transition: all 0.5s;
+}
+
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+    }
+}
+
+#fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
 #izquierdaUI{
     margin-left: calc(5%);
 }
