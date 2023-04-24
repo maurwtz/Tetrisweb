@@ -2,6 +2,7 @@
 var COLS = 10, ROWS = 20;
 var board = [];
 var score;
+var player;
 const NO_OF_HIGH_SCORES = 10;
 const HIGH_SCORES = 'highScores';
 var maxScore = 0;
@@ -55,13 +56,16 @@ webSocket.onmessage = (event) => {
 
 
 function sendText(){  
+
   const msg = {
     juego: "Tetrisweb",
     event: "Final Score",
     value: score,
-    player: name
+    player: player,
   };
+  console.log(msg)
   webSocket.send(JSON.stringify(msg));
+  
   console.log("llego acá");
   
 }
@@ -172,7 +176,8 @@ function clearLines() {
             score += 1000;
             if (score > maxScore) { maxScore = score;}
             
-            //sessionStorage.setItem(score);
+            // Aca puede haber un event para multiplayer, enviar datos al websocket
+
             document.getElementById( 'score' ).innerHTML = 'SCORE ' + score;
             document.getElementById( 'clearsound' ).play();
             for ( var yy = y; yy > 0; --yy ) {
@@ -256,8 +261,9 @@ function playButtonClicked() {
 function saveHighScore(score, highScores) {
     const name = prompt('INGRESA UN NOMBRE: ');
     const newScore = { score, name };
-    
+    player = name;
     sendText(); // envia el score al websocket
+
     // 1. Add to list
     highScores.push(newScore);
   
