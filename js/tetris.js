@@ -2,6 +2,7 @@
 var COLS = 10, ROWS = 20;
 var board = [];
 var score;
+var linea; //cantidas de lineas completadas
 var player;
 const NO_OF_HIGH_SCORES = 10;
 const HIGH_SCORES = 'highScores';
@@ -59,8 +60,8 @@ function sendText(){
 
   const msg = {
     juego: "Tetrisweb",
-    event: "Final Score",
-    value: score,
+    event: "Lineas Completada",
+    value: linea,
     player: player,
   };
   console.log(msg)
@@ -174,9 +175,11 @@ function clearLines() {
         }
         if ( rowFilled ) {
             score += 1000;
+            linea += 1;
             if (score > maxScore) { maxScore = score;}
             
             // Aca puede haber un event para multiplayer, enviar datos al websocket
+            sendText();
 
             document.getElementById( 'score' ).innerHTML = 'SCORE ' + score;
             document.getElementById( 'clearsound' ).play();
@@ -262,7 +265,7 @@ function saveHighScore(score, highScores) {
     const name = prompt('INGRESA UN NOMBRE: ');
     const newScore = { score, name };
     player = name;
-    sendText(); // envia el score al websocket
+    //sendText(); // envia el score al websocket
 
     // 1. Add to list
     highScores.push(newScore);
@@ -292,6 +295,7 @@ function newGame() {
     intervalRender = setInterval( render, 30 );
     init();
     newShape();
+    linea = 0;
     score = 0;
     document.getElementById( 'score' ).innerHTML = 'SCORE  ' + score;
     lose = false;
