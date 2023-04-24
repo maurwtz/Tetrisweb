@@ -120,6 +120,24 @@ canvas {
     cursor: pointer;
 }
 
+#multiplayer{
+    color: white;
+    font-family: arial;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 0 0 3px white;
+    width: 150px;
+    height: 100px;
+    display: block;
+    position: absolute;
+    object-fit: contain;
+    margin-top: -350px;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 #butResetHighscore{
     background-color: #183850;
     color: white;

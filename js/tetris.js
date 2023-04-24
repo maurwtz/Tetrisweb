@@ -5,6 +5,7 @@ var score;
 var linea; //cantidas de lineas completadas
 var name;
 var player;
+var ranking;
 const NO_OF_HIGH_SCORES = 10;
 const HIGH_SCORES = 'highScores';
 var maxScore = 0;
@@ -53,7 +54,8 @@ webSocket.onopen = (event) => {
   };
 
 webSocket.onmessage = (event) => {
-    console.log(event.data);
+    ranking = JSON.parse(event.data);
+    console.log(ranking);
 };
 
 
@@ -290,6 +292,11 @@ function checkHighScore(score) {
       
     }
 }
+
+function receiveSocket(){
+    
+}
+
 
 function newGame() {
     clearAllIntervals();
