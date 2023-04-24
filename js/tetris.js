@@ -60,9 +60,9 @@ function sendText(){
 
   const msg = {
     juego: "Tetrisweb",
-    event: "Lineas Completada",
-    value: linea,
-    player: player,
+    event: "lineas",
+    value: 1,
+    player: "tt",
   };
   console.log(msg)
   webSocket.send(JSON.stringify(msg));
