@@ -44,6 +44,9 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 })
 
 
+// GYROSCOPE
+
+
 
 //WEBSOCKET
 
@@ -89,15 +92,6 @@ function sendText(){
   
 }
 
-
-/*
-info = {game:"Tetrisweb", event:"Score", value: score, player: "Jugador1"}
-
-JSON.parse({"game":"Tetrisweb", "event":"Score", "value":score, "player": "Jugador1"})
-JSON.stringify()*/
-//wss://ucpgames-api.azurewebsites.net/
-
-// {"game":"Tetrisweb", "event":"Score", "value":score, "player": "Jugador1"}
 
 //GAME
 // creates a new 4x4 shape in global variable 'current'
