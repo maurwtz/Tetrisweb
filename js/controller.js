@@ -21,20 +21,38 @@ let btnRight = document.getElementById("butDerecha");
 let btnLeft = document.getElementById("butIzquierda");
 
 
+
+
 btnDown.addEventListener("click", function( e )  {
     
-    keyPress( 'down' );
-    render();
+    moveDown();
 });
 btnRight.addEventListener("click", () => {
-    keyPress( 'right');
-    render();
+    moveRight();
 });
 btnLeft.addEventListener("click", () => {
-    keyPress( 'left');
-    render();
+    moveLeft();
 });
 btnRotate.addEventListener("click", () => {
+    rotate();
+});
+
+
+
+
+function moveLeft(){
+    keyPress( 'left');
+    render();
+}
+function moveRight(){
+    keyPress( 'right');
+    render();
+}
+function moveDown(){
+    keyPress( 'down' );
+    render();
+}
+function rotate(){
     keyPress( 'rotate');
     render();
-});
+}

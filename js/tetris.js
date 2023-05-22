@@ -44,6 +44,67 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 })
 
 
+// MOTION SENSORS
+
+if (window.DeviceMotionEvent) {
+    console.log("Se")
+    // DeviceMotion API is supported
+    // Proceed with motion controls setup
+  } else {
+    // DeviceMotion API is not supported
+    // Handle unsupported scenario
+  }
+
+
+
+window.addEventListener('deviceorientation', handleOrientation);
+
+function handleOrientation(event) {
+  const alpha = event.alpha;
+  const beta = event.beta;
+  const gamma = event.gamma;
+  // Do stuff...
+}
+
+// Register event listener for device motion changes
+window.addEventListener('devicemotion', handleMotion);
+
+// Register event listener for device orientation changes
+window.addEventListener('deviceorientation', handleOrientation);
+
+// Function to handle device orientation changes
+function handleOrientation(event) {
+  // Extract rotation data from event object
+  var alpha = event.alpha; // Rotation around the z-axis (0 to 360 degrees)
+  var beta = event.beta; // Rotation around the x-axis (-180 to 180 degrees)
+  var gamma = event.gamma; // Rotation around the y-axis (-90 to 90 degrees)
+
+  // Use the rotation data to control Tetris movement
+  // Implement your logic to move the Tetris piece based on orientation data
+  // For example:
+  if (gamma || alpha > 0) { //Poner en 30 para probar en telefono
+    console.log("Right")
+    // Tilted to the right
+    // Move Tetris piece right
+    moveRight();
+  } else if (gamma || alpha < 0) { //Poner en -30 para probar en telefono
+    console.log("Left")
+    // Tilted to the left
+    // Move Tetris piece left
+    moveLeft();
+  } else if (beta > 90) { // Poner en 120 para probar en telefono 
+    console.log("Down")
+    // Tilted down
+    // Move Tetris piece down
+    moveDown();
+  } else if (beta < 90) { // Poner en 70 para probar en telefono
+    console.log("Up")
+    // Tilted up
+    // Rotate Tetris piece
+    rotate();
+  }
+}
+
 
 //WEBSOCKET
 
@@ -89,15 +150,6 @@ function sendText(){
   
 }
 
-
-/*
-info = {game:"Tetrisweb", event:"Score", value: score, player: "Jugador1"}
-
-JSON.parse({"game":"Tetrisweb", "event":"Score", "value":score, "player": "Jugador1"})
-JSON.stringify()*/
-//wss://ucpgames-api.azurewebsites.net/
-
-// {"game":"Tetrisweb", "event":"Score", "value":score, "player": "Jugador1"}
 
 //GAME
 // creates a new 4x4 shape in global variable 'current'
