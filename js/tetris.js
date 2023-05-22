@@ -82,26 +82,22 @@ function handleOrientation(event) {
   // Use the rotation data to control Tetris movement
   // Implement your logic to move the Tetris piece based on orientation data
   // For example:
-  if (gamma || alpha > 0) { //Poner en 30 para probar en telefono
+  if (gamma || alpha > 0) { // 0 browsre - 30 phone
     console.log("Right")
     // Tilted to the right
-    // Move Tetris piece right
-    moveRight();
-  } else if (gamma || alpha < 0) { //Poner en -30 para probar en telefono
+    moveRight(); // Move Tetris piece right
+  } else if (gamma || alpha < -30) { // 0 browser - -30 phone
     console.log("Left")
     // Tilted to the left
-    // Move Tetris piece left
-    moveLeft();
-  } else if (beta > 90) { // Poner en 120 para probar en telefono 
+    moveLeft(); // Move Tetris piece left
+  } else if (beta > 120) { // 90 browser - 120 phone
     console.log("Down")
     // Tilted down
-    // Move Tetris piece down
-    moveDown();
-  } else if (beta < 90) { // Poner en 70 para probar en telefono
+    moveDown(); // Move Tetris piece down
+  } else if (beta < 70) { // 90 browser - 70 phone
     console.log("Up")
     // Tilted up
-    // Rotate Tetris piece
-    rotate();
+    rotate(); // Rotate Tetris piece
   }
 }
 
