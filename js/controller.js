@@ -24,7 +24,6 @@ let btnLeft = document.getElementById("butIzquierda");
 
 
 btnDown.addEventListener("click", function( e )  {
-    
     moveDown();
 });
 btnRight.addEventListener("click", () => {
@@ -34,7 +33,7 @@ btnLeft.addEventListener("click", () => {
     moveLeft();
 });
 btnRotate.addEventListener("click", () => {
-    rotate();
+    moveRotate();
 });
 
 
@@ -52,7 +51,7 @@ function moveDown(){
     keyPress( 'down' );
     render();
 }
-function rotate(){
+function moveRotate(){
     keyPress( 'rotate');
     render();
 }

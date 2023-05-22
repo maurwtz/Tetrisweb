@@ -63,9 +63,6 @@ function handleOrientation(event) {
   
 }
 
-// Register event listener for device motion changes
-window.addEventListener('devicemotion', handleMotion);
-
 // Register event listener for device orientation changes
 window.addEventListener('deviceorientation', handleOrientation);
 
@@ -101,7 +98,7 @@ function handleOrientation(event) {
         } else if (beta < 5) { // 90 browser - 70 phone
             console.log("Up")
             // Tilted up
-            rotate(); // Rotate Tetris piece
+            moveRotate(); // Rotate Tetris piece
         }
     }
 }
