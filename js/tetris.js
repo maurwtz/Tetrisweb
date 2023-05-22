@@ -48,11 +48,6 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 const movementCooldown = 500; //cooldown entre movimientos
 let lastMovementTime = 0; // 
 
-if (window.DeviceMotionEvent) {
-    console.log("Device motion funciona")
-  } else {
-    console.log("Device motion no funciona")
-  }
 
 window.addEventListener('deviceorientation', handleOrientation);
 
@@ -73,29 +68,41 @@ function handleOrientation(event) {
   var beta = event.beta; // Rotation around the x-axis (-180 to 180 degrees)
   var gamma = event.gamma; // Rotation around the y-axis (-90 to 90 degrees)
 
+  //
+  if (initialGamma === null) {
+    initialGamma = gamma;
+    initialAlpha = alpha;
+    initialBeta = beta;
+  }//new
+
+  const gammaDiff = gamma - initialGamma;
+  const alphaDiff = alpha - initialAlpha;
+  const betaDiff = beta - initialBeta;
+
+
   //DEBUG
-  document.getElementById('gamma-value').textContent = 'Gamma: ' + parseFloat(gamma).toFixed(2);
-  document.getElementById('alpha-value').textContent = 'Alpha: ' + parseFloat(alpha).toFixed(2);
-  document.getElementById('beta-value').textContent = 'Beta: ' + parseFloat(beta).toFixed(2);
+  document.getElementById('gamma-value').textContent = 'Gamma: ' + parseFloat(gammaDiff).toFixed(2);
+  document.getElementById('alpha-value').textContent = 'Alpha: ' + parseFloat(alphaDiff).toFixed(2);
+  document.getElementById('beta-value').textContent = 'Beta: ' + parseFloat(betaDiff).toFixed(2);
 
   const currentTime = Date.now();
 
   if (currentTime - lastMovementTime >= movementCooldown) {
         // Update the last movement time
         lastMovementTime = currentTime;
-        if (alpha < 65) { // 0 browsre - 30 phone
+        if (alphaDiff < 65) { // 0 browsre - 30 phone
             console.log("Right")
             // Tilted to the right
             moveRight(); // Move Tetris piece right
-        } else if (alpha > 100) { // 0 browser - -30 phone
+        } else if (alphaDiff > 100) { // 0 browser - -30 phone
             console.log("Left")
             // Tilted to the left
             moveLeft(); // Move Tetris piece left
-        } else if (beta > 15) { // 90 browser - 120 phone
+        } else if (betaDiff > 15) { // 90 browser - 120 phone
             console.log("Down")
             // Tilted down
             moveDown(); // Move Tetris piece down
-        } else if (beta < -5) { // 90 browser - 70 phone
+        } else if (betaDiff < -5) { // 90 browser - 70 phone
             console.log("Up")
             // Tilted up
             moveRotate(); // Rotate Tetris piece
