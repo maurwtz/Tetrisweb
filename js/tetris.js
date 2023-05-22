@@ -48,6 +48,9 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 const movementCooldown = 500; //cooldown entre movimientos
 let lastMovementTime = 0; // 
 
+let initialGamma = null; // Initial gamma value
+let initialAlpha = null; // Initial alpha value
+let initialBeta = null; // Initial beta value
 
 window.addEventListener('deviceorientation', handleOrientation);
 
