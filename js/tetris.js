@@ -54,8 +54,6 @@ if (window.DeviceMotionEvent) {
     console.log("Device motion no funciona")
   }
 
-
-
 window.addEventListener('deviceorientation', handleOrientation);
 
 function handleOrientation(event) {
@@ -83,11 +81,11 @@ function handleOrientation(event) {
   document.getElementById('alpha-value').textContent = 'Alpha: ' + alpha;
   document.getElementById('beta-value').textContent = 'Beta: ' + beta;
 
-  const currentTime = Date.now();
+  //const currentTime = Date.now();
 
-  if (currentTime - lastMovementTime >= movementCooldown) {
+  //if (currentTime - lastMovementTime >= movementCooldown) {
         // Update the last movement time
-        lastMovementTime = currentTime;
+        //lastMovementTime = currentTime;
         if (alpha < 65) { // 0 browsre - 30 phone
             console.log("Right")
             // Tilted to the right
@@ -105,7 +103,7 @@ function handleOrientation(event) {
             // Tilted up
             rotate(); // Rotate Tetris piece
         }
-    }
+    //}
 }
 
 
