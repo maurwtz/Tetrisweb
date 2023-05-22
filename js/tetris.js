@@ -50,15 +50,6 @@ let lastMovementTime = 0; //
 
 once = true;
 
-window.addEventListener('deviceorientation', handleOrientation);
-
-function handleOrientation(event) {
-  const alpha = event.alpha;
-  const beta = event.beta;
-  const gamma = event.gamma;
-  
-}
-
 // Register event listener for device orientation changes
 window.addEventListener('deviceorientation', handleOrientation);
 
