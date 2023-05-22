@@ -78,11 +78,6 @@ function handleOrientation(event) {
     initialBeta = beta;
   }//new
 
-  const gammaDiff = gamma - initialGamma;
-  const alphaDiff = alpha - initialAlpha;
-  const betaDiff = beta - initialBeta;
-
-
   //DEBUG
   document.getElementById('gamma-value').textContent = 'Gamma: ' + parseFloat(gammaDiff).toFixed(2);
   document.getElementById('alpha-value').textContent = 'Alpha: ' + parseFloat(alphaDiff).toFixed(2);
@@ -93,19 +88,19 @@ function handleOrientation(event) {
   if (currentTime - lastMovementTime >= movementCooldown) {
         // Update the last movement time
         lastMovementTime = currentTime;
-        if (alphaDiff < 65) { // 0 browsre - 30 phone
+        if (alpha < initialAlpha-10) { // 0 browsre - 30 phone
             console.log("Right")
             // Tilted to the right
             moveRight(); // Move Tetris piece right
-        } else if (alphaDiff > 100) { // 0 browser - -30 phone
+        } else if (alpha > initialAlpha+10) { // 0 browser - -30 phone
             console.log("Left")
             // Tilted to the left
             moveLeft(); // Move Tetris piece left
-        } else if (betaDiff > 15) { // 90 browser - 120 phone
+        } else if (beta > initialBeta+10) { // 90 browser - 120 phone
             console.log("Down")
             // Tilted down
             moveDown(); // Move Tetris piece down
-        } else if (betaDiff < -5) { // 90 browser - 70 phone
+        } else if (beta < initialBeta-10) { // 90 browser - 70 phone
             console.log("Up")
             // Tilted up
             moveRotate(); // Rotate Tetris piece
