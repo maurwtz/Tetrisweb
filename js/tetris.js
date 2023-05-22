@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 
 
 // MOTION SENSORS
-const movementCooldown = 1000; //cooldown entre movimientos
+const movementCooldown = 250; //cooldown entre movimientos
 let lastMovementTime = 0; // 
 
 if (window.DeviceMotionEvent) {
