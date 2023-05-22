@@ -81,7 +81,7 @@ function handleOrientation(event) {
   document.getElementById('alpha-value').textContent = 'Alpha: ' + alpha;
   document.getElementById('beta-value').textContent = 'Beta: ' + beta;
 
-  //const currentTime = Date.now();
+  const currentTime = Date.now();
 
   if (currentTime - lastMovementTime >= movementCooldown) {
         // Update the last movement time
