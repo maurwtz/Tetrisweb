@@ -83,9 +83,9 @@ function handleOrientation(event) {
 
   //const currentTime = Date.now();
 
-  //if (currentTime - lastMovementTime >= movementCooldown) {
+  if (currentTime - lastMovementTime >= movementCooldown) {
         // Update the last movement time
-        //lastMovementTime = currentTime;
+        lastMovementTime = currentTime;
         if (alpha < 65) { // 0 browsre - 30 phone
             console.log("Right")
             // Tilted to the right
@@ -103,7 +103,7 @@ function handleOrientation(event) {
             // Tilted up
             rotate(); // Rotate Tetris piece
         }
-    //}
+    }
 }
 
 
