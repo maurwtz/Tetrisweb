@@ -88,11 +88,11 @@ function handleOrientation(event) {
   if (currentTime - lastMovementTime >= movementCooldown) {
         // Update the last movement time
         lastMovementTime = currentTime;
-        if (gamma || alpha < 65) { // 0 browsre - 30 phone
+        if (alpha < 65) { // 0 browsre - 30 phone
             console.log("Right")
             // Tilted to the right
             moveRight(); // Move Tetris piece right
-        } else if (gamma || alpha > 100) { // 0 browser - -30 phone
+        } else if (alpha > 100) { // 0 browser - -30 phone
             console.log("Left")
             // Tilted to the left
             moveLeft(); // Move Tetris piece left
