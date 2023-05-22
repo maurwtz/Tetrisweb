@@ -48,9 +48,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 const movementCooldown = 500; //cooldown entre movimientos
 let lastMovementTime = 0; // 
 
-let initialGamma = null; // Initial gamma value
-let initialAlpha = null; // Initial alpha value
-let initialBeta = null; // Initial beta value
+once = true;
 
 window.addEventListener('deviceorientation', handleOrientation);
 
@@ -72,16 +70,20 @@ function handleOrientation(event) {
   var gamma = event.gamma; // Rotation around the y-axis (-90 to 90 degrees)
 
   //
-  if (initialGamma === null) {
+  if (once){
     initialGamma = gamma;
     initialAlpha = alpha;
     initialBeta = beta;
-  }//new
+
+    once = false;
+  }
+    
+  
 
   //DEBUG
-  document.getElementById('gamma-value').textContent = 'Gamma: ' + parseFloat(gammaDiff).toFixed(2);
-  document.getElementById('alpha-value').textContent = 'Alpha: ' + parseFloat(alphaDiff).toFixed(2);
-  document.getElementById('beta-value').textContent = 'Beta: ' + parseFloat(betaDiff).toFixed(2);
+  document.getElementById('gamma-value').textContent = 'Gamma: ' + parseFloat(initialGamma).toFixed(2);
+  document.getElementById('alpha-value').textContent = 'Alpha: ' + parseFloat(initialAlpha).toFixed(2);
+  document.getElementById('beta-value').textContent = 'Beta: ' + parseFloat(initialBeta).toFixed(2);
 
   const currentTime = Date.now();
 
