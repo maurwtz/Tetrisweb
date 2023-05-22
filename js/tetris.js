@@ -74,9 +74,9 @@ function handleOrientation(event) {
   var gamma = event.gamma; // Rotation around the y-axis (-90 to 90 degrees)
 
   //DEBUG
-  document.getElementById('gamma-value').textContent = 'Gamma: ' + gamma;
-  document.getElementById('alpha-value').textContent = 'Alpha: ' + alpha;
-  document.getElementById('beta-value').textContent = 'Beta: ' + beta;
+  document.getElementById('gamma-value').textContent = 'Gamma: ' + parseFloat(gamma).toFixed(2);
+  document.getElementById('alpha-value').textContent = 'Alpha: ' + parseFloat(alpha).toFixed(2);
+  document.getElementById('beta-value').textContent = 'Beta: ' + parseFloat(beta).toFixed(2);
 
   const currentTime = Date.now();
 
@@ -95,7 +95,7 @@ function handleOrientation(event) {
             console.log("Down")
             // Tilted down
             moveDown(); // Move Tetris piece down
-        } else if (beta < 5) { // 90 browser - 70 phone
+        } else if (beta < -5) { // 90 browser - 70 phone
             console.log("Up")
             // Tilted up
             moveRotate(); // Rotate Tetris piece
