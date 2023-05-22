@@ -78,6 +78,11 @@ function handleOrientation(event) {
   var beta = event.beta; // Rotation around the x-axis (-180 to 180 degrees)
   var gamma = event.gamma; // Rotation around the y-axis (-90 to 90 degrees)
 
+  //DEBUG
+  document.getElementById('gamma-value').textContent = 'Gamma: ' + gamma;
+  document.getElementById('alpha-value').textContent = 'Alpha: ' + alpha;
+  document.getElementById('beta-value').textContent = 'Beta: ' + beta;
+
   const currentTime = Date.now();
 
   if (currentTime - lastMovementTime >= movementCooldown) {
