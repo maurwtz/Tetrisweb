@@ -72,9 +72,9 @@ function handleOrientation(event) {
   
 
   //DEBUG
-  document.getElementById('gamma-value').textContent = 'Gamma: ' + parseFloat(initialGamma).toFixed(2);
-  document.getElementById('alpha-value').textContent = 'Alpha: ' + parseFloat(initialAlpha).toFixed(2);
-  document.getElementById('beta-value').textContent = 'Beta: ' + parseFloat(initialBeta).toFixed(2);
+  document.getElementById('gamma-value').textContent = 'Gamma: ' + parseFloat(gamma).toFixed(2);
+  document.getElementById('alpha-value').textContent = 'Alpha: ' + parseFloat(alpha).toFixed(2);
+  document.getElementById('beta-value').textContent = 'Beta: ' + parseFloat(beta).toFixed(2);
 
   const currentTime = Date.now();
 
