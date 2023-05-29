@@ -1,4 +1,4 @@
-
+isGamePaused = false;
 var COLS = 10, ROWS = 20;
 var board = [];
 var score;
@@ -108,7 +108,7 @@ const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognit
 recognition.continuous = true; // Continuous speech recognition
 
 document.getElementById('voice-command-button').addEventListener('click', function() {
-    // Start the recognition when the button is clicked
+    isGamePaused = true;
     recognition.start();
   });
 
@@ -120,15 +120,19 @@ recognition.onresult = function(event) {
   if (command.includes('left')) {
     // Move Tetris piece left
     moveLeft();
+    isGamePaused = false;
   } else if (command.includes('right')) {
     // Move Tetris piece right
     moveRight();
+    isGamePaused = false;
   } else if (command.includes('rotate')) {
     // Rotate Tetris piece
     rotate();
+    isGamePaused = false;
   } else if (command.includes('down')) {
     // Move Tetris piece down
     moveDown();
+    isGamePaused = false;
   }
 };
 
@@ -219,6 +223,11 @@ function init() {
 
 // keep the element moving down, creating new shapes and clearing lines
 function tick() {
+    if (isGamePaused){ //Esta pausado el juego, entonces no continua bajando
+        return;
+    }
+
+
     if ( valid( 0, 1 ) ) {
         ++currentY;
     }
