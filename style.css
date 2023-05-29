@@ -4,6 +4,10 @@ html {
     position: relative;
 }
 
+.voice-command-button {
+    
+}
+
 canvas {
     display: block;
     margin: auto;

@@ -107,8 +107,10 @@ const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognit
 // Configure recognition options
 recognition.continuous = true; // Continuous speech recognition
 
-// Start the recognition
-//recognition.start();
+document.getElementById('voice-command-button').addEventListener('click', function() {
+    // Start the recognition when the button is clicked
+    recognition.start();
+  });
 
 // Event handler for speech recognition results
 recognition.onresult = function(event) {
@@ -357,7 +359,6 @@ function playButtonClicked() {
     name = prompt('INGRESA UN NOMBRE: ');
     newGame();
     document.getElementById("playbutton").disabled = true;
-    recognition.start();
 }
 
 function saveHighScore(score, highScores) {
