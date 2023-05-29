@@ -108,7 +108,7 @@ const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognit
 recognition.continuous = true; // Continuous speech recognition
 
 // Start the recognition
-recognition.start();
+//recognition.start();
 
 // Event handler for speech recognition results
 recognition.onresult = function(event) {
@@ -357,6 +357,7 @@ function playButtonClicked() {
     name = prompt('INGRESA UN NOMBRE: ');
     newGame();
     document.getElementById("playbutton").disabled = true;
+    recognition.start();
 }
 
 function saveHighScore(score, highScores) {
