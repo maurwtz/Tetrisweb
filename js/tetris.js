@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
     }, 2000)
 })
 
-
+/*
 // MOTION SENSORS
 const movementCooldown = 300; //cooldown entre movimientos
 let lastMovementTime = 0; // 
@@ -89,6 +89,46 @@ function handleOrientation(event) {
         }
     }
 }
+*/
+
+// VIBRAR
+
+function vibrate(duration) { 
+  if ('vibrate' in navigator) {
+    navigator.vibrate(duration); //en milisegundos
+  }
+}
+
+// VOICE DETECTION
+
+// Create a SpeechRecognition object
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+// Configure recognition options
+recognition.continuous = true; // Continuous speech recognition
+
+// Start the recognition
+recognition.start();
+
+// Event handler for speech recognition results
+recognition.onresult = function(event) {
+  const command = event.results[event.results.length - 1][0].transcript.toLowerCase();
+
+  // Handle the recognized command
+  if (command.includes('left')) {
+    // Move Tetris piece left
+    moveLeft();
+  } else if (command.includes('right')) {
+    // Move Tetris piece right
+    moveRight();
+  } else if (command.includes('rotate')) {
+    // Rotate Tetris piece
+    rotate();
+  } else if (command.includes('down')) {
+    // Move Tetris piece down
+    moveDown();
+  }
+};
 
 
 
@@ -230,6 +270,7 @@ function clearLines() {
             }
         }
         if ( rowFilled ) {
+            vibrate(200);
             score += 1000;
             linea += 1;
             if (score > maxScore) { maxScore = score;}
