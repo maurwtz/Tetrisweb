@@ -111,15 +111,16 @@ document.getElementById('playbutton').addEventListener('click', function() {
 
   const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
   recognition.continuous = true; // Reconocimiento de voz continuo
+  recognition.lang = 'es-AR';
+
 
   recognition.onresult = function(event) {
     const command = event.results[event.results.length - 1][0].transcript.toLowerCase();
 
-  if (command.includes('pause')) {
-    // Move Tetris piece left
+  if (command.includes('pausar')) {
     isGamePaused = true;
   } 
-  if (command.includes('resume')){
+  if (command.includes('continuar')){
     isGamePaused = false;
   }
 }
