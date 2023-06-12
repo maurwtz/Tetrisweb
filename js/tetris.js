@@ -100,17 +100,21 @@ function vibrate(duration) {
 }
 
 //VOICE
-const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-recognition.continuous = true; // Reconocimiento de voz continuo
+
 
 // VOICE para pausar
 document.getElementById('playbutton').addEventListener('click', function() {
     recognition.start();
   });
 
-  const command = event.results[event.results.length - 1][0].transcript.toLowerCase();
+  
+
+  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  recognition.continuous = true; // Reconocimiento de voz continuo
 
   recognition.onresult = function(event) {
+    const command = event.results[event.results.length - 1][0].transcript.toLowerCase();
+    
   if (command.includes('pause')) {
     // Move Tetris piece left
     isGamePaused = true;
