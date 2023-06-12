@@ -4,9 +4,6 @@ html {
     position: relative;
 }
 
-.voice-command-button {
-    
-}
 
 canvas {
     display: block;
@@ -175,6 +172,17 @@ justify-content:center;}
   }
 
 
+  #voice-command-button {
+    background-color: black; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin-bottom: auto;
+  }
 
 
 #derechaUI {

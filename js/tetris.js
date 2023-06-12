@@ -95,17 +95,28 @@ function handleOrientation(event) {
 
 function vibrate(duration) { 
   if ('vibrate' in navigator) {
-    navigator.vibrate(duration); //en milisegundos
+    navigator.vibrate(duration); // en milisegundos
   }
 }
 
-// VOICE DETECTION
-
-// Create a SpeechRecognition object
+//VOICE
 const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+recognition.continuous = true; // Reconocimiento de voz continuo
 
-// Configure recognition options
-recognition.continuous = true; // Continuous speech recognition
+// VOICE para pausar
+document.getElementById('playbutton').addEventListener('click', function() {
+    recognition.start();
+  });
+
+  if (command.includes('pause')) {
+    // Move Tetris piece left
+    isGamePaused = true;
+  } else if (command.includes('resume')){
+    isGamePaused = false;
+  }
+
+//#region voice para jugar, no recomendado
+/*
 
 document.getElementById('voice-command-button').addEventListener('click', function() {
     isGamePaused = true;
@@ -135,8 +146,8 @@ recognition.onresult = function(event) {
     isGamePaused = false;
   }
 };
-
-
+*/
+//#endregion
 
 //WEBSOCKET
 
