@@ -108,12 +108,16 @@ document.getElementById('playbutton').addEventListener('click', function() {
     recognition.start();
   });
 
+  const command = event.results[event.results.length - 1][0].transcript.toLowerCase();
+
+  recognition.onresult = function(event) {
   if (command.includes('pause')) {
     // Move Tetris piece left
     isGamePaused = true;
   } else if (command.includes('resume')){
     isGamePaused = false;
   }
+}
 
 //#region voice para jugar, no recomendado
 /*
