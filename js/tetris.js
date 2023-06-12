@@ -104,26 +104,36 @@ function vibrate(duration) {
 
 // VOICE para pausar
 document.getElementById('playbutton').addEventListener('click', function() {
-    recognition.start();
+    startRecognition();
   });
-
   
-
-  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-  recognition.continuous = true; // Reconocimiento de voz continuo
-  recognition.lang = 'es-AR';
-
-
-  recognition.onresult = function(event) {
-    const command = event.results[event.results.length - 1][0].transcript.toLowerCase();
-
-  if (command.includes('pausar')) {
-    isGamePaused = true;
-  } 
-  if (command.includes('continuar')){
-    isGamePaused = false;
+  let recognition;
+  
+  function startRecognition() {
+    recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'es-AR'; // Establece el idioma a español (Argentina)
+    
+    recognition.onresult = function(event) {
+      const command = event.results[event.results.length - 1][0].transcript.toLowerCase();
+    
+      if (command.includes('pausar')) { // Usa el comando en español para pausar
+        // Mover la pieza de Tetris a la izquierda
+        isGamePaused = true;
+      } 
+      if (command.includes('continuar')) { // Usa el comando en español para continuar
+        isGamePaused = false;
+      }
+      
+      // Detener la detección de voz actual
+      recognition.stop();
+      
+      // Reiniciar la detección de voz después de un breve retraso
+      setTimeout(startRecognition, 100);
+    };
+    
+    // Iniciar la detección de voz
+    recognition.start();
   }
-}
 
 //#region voice para jugar, no recomendado
 /*
