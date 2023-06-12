@@ -327,27 +327,33 @@ function keyPress( key ) {
         case 'left':
             if ( valid( -1 ) ) {
                 --currentX;
+                isGamePaused = false;
             }
             break;
         case 'right':
             if ( valid( 1 ) ) {
                 ++currentX;
+                isGamePaused = false;
             }
             break;
         case 'down':
             if ( valid( 0, 1 ) ) {
                 ++currentY;
+                isGamePaused = false;
             }
             break;
         case 'rotate':
             var rotated = rotate( current );
             if ( valid( 0, 0, rotated ) ) {
                 current = rotated;
+                isGamePaused = false;
             }
+            
             break;
         case 'drop':
             while( valid(0, 1) ) {
                 ++currentY;
+                isGamePaused = false;
             }
             tick();
             break;
