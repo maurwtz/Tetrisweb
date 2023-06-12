@@ -312,7 +312,7 @@ function clearLines() {
             }
         }
         if ( rowFilled ) {
-            vibrate(200);
+            vibrate(1000);
             score += 1000;
             linea += 1;
             if (score > maxScore) { maxScore = score;}
