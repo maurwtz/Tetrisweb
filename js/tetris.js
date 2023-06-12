@@ -95,7 +95,7 @@ function handleOrientation(event) {
 
 function vibrate(duration) { 
   if ('vibrate' in navigator) {
-    navigator.vibrate(duration); // en milisegundos
+    navigator.vibrate(duration); // En milisegundos
   }
 }
 
@@ -116,18 +116,17 @@ document.getElementById('playbutton').addEventListener('click', function() {
     recognition.onresult = function(event) {
       const command = event.results[event.results.length - 1][0].transcript.toLowerCase();
     
-      if (command.includes('pausar')) { // Usa el comando en español para pausar
-        // Mover la pieza de Tetris a la izquierda
+      if (command.includes('pausar')) { // Pausar
         isGamePaused = true;
       } 
-      if (command.includes('continuar')) { // Usa el comando en español para continuar
+      if (command.includes('continuar')) { // Continuar
         isGamePaused = false;
       }
       
-      // Detener la detección de voz actual
+      // Parar detección
       recognition.stop();
       
-      // Reiniciar la detección de voz después de un breve retraso
+      // Reiniciar la detección
       setTimeout(startRecognition, 100);
     };
     
