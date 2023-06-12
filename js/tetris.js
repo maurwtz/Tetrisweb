@@ -114,11 +114,12 @@ document.getElementById('playbutton').addEventListener('click', function() {
 
   recognition.onresult = function(event) {
     const command = event.results[event.results.length - 1][0].transcript.toLowerCase();
-    
+
   if (command.includes('pause')) {
     // Move Tetris piece left
     isGamePaused = true;
-  } else if (command.includes('resume')){
+  } 
+  if (command.includes('resume')){
     isGamePaused = false;
   }
 }
